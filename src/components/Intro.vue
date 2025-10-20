@@ -5,11 +5,15 @@
   <!-- * 하단 스크롤 효과 필요 -->
   <div class="intro-container w-screen h-screen">
     <h1 class="">Wonny <br />Portfolio</h1>
+    <div class="test">*</div>
   </div>
 </template>
 
 <style scoped lang="scss">
 div.intro-container {
-  background-color: black;
+  background-color: #0b0c2a;
+  div.test {
+    color: yellow;
+  }
 }
 </style>

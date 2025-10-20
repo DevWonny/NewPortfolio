@@ -1,7 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>Skills</div>
+  <div class="skills-container w-screen h-screen">Skills</div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+div.skills-container {
+  background-color: #2a2a3f;
+}
+</style>
