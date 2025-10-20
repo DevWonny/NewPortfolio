@@ -19,4 +19,19 @@ import Contact from '@/components/Contact.vue'
   </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+div.intro-container {
+  background-color: #0b0c2a;
+}
+
+div.information-container,
+div.skills-container,
+div.career-container,
+div.project-container {
+  background-color: #2a2a3f;
+}
+
+div.contact-container {
+  background-color: #323248;
+}
+</style>
