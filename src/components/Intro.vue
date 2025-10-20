@@ -3,7 +3,7 @@
   <canvas ref="canvas" class="fixed top-0 left-0 w-full h-full z-0"></canvas>
   <!-- * 하단 스크롤 효과 필요 -->
   <div class="intro-container w-screen h-screen">
-    <h1 class="">Wonny <br />Portfolio</h1>
+    <h1 class="text-9xl">WONNY <br />PORTFOLIO</h1>
   </div>
 </template>
 
@@ -137,5 +137,11 @@ onBeforeUnmount(() => {
 canvas {
   display: block;
   z-index: -1;
+}
+
+div.intro-container {
+  h1 {
+    line-height: 1.2;
+  }
 }
 </style>

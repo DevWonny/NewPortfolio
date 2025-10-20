@@ -1,8 +1,7 @@
 <script setup lang="ts">
 // component
 import Intro from '@/components/Intro.vue'
-import Information from '@/components/Information.vue'
-import Skills from '@/components/Skills.vue'
+import Introduce from '@/components/Introduce.vue'
 import Career from '@/components/Career.vue'
 import Project from '@/components/Project.vue'
 import Contact from '@/components/Contact.vue'
@@ -11,8 +10,7 @@ import Contact from '@/components/Contact.vue'
 <template>
   <div>
     <Intro></Intro>
-    <Information></Information>
-    <Skills></Skills>
+    <Introduce></Introduce>
     <Career></Career>
     <Project></Project>
     <Contact></Contact>
@@ -24,8 +22,7 @@ div.intro-container {
   background-color: #0b0c2a;
 }
 
-div.information-container,
-div.skills-container,
+div.introduce-container,
 div.career-container,
 div.project-container {
   background-color: #2a2a3f;
