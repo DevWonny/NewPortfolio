@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // component
 import Intro from '@/components/Intro.vue'
-import Information from '@/components/information.vue'
+import Information from '@/components/Information.vue'
 import Skills from '@/components/Skills.vue'
 import Career from '@/components/Career.vue'
 import Project from '@/components/Project.vue'
