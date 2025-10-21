@@ -16,63 +16,24 @@ const contactRef = ref()
 
 const sections = ref<HTMLElement[]>([])
 const currentIndex = ref(0)
-let isAnimating = false
-let scrollTimeout: number | null = null
-let accumulatedDelta = 0
-const SCROLL_THRESHOLD = 80 // 해당 값 이상 쌓여야 다음 페이지로 이동
-
-// Smooth Animation
-const smoothScrollTo = (targetY: number, duration = 600) => {
-  const startY = window.scrollY
-  const distance = targetY - startY
-  const startTime = performance.now()
-
-  isAnimating = true
-
-  const animation = (currentTime: number) => {
-    const elapsed = currentTime - startTime
-    const progress = Math.min(elapsed / duration, 1)
-
-    // easeInOutCubic
-    const ease =
-      progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress * 2, 3) / 2
-
-    window.scrollTo(0, startY + distance * ease)
-
-    if (progress < 1) {
-      requestAnimationFrame(animation)
-    } else {
-      isAnimating = false
-    }
-  }
-
-  requestAnimationFrame(animation)
-}
+let isScrolling = false
 
 // Wheel Event
 const onWheel = (e: WheelEvent) => {
   e.preventDefault()
-  if (isAnimating) return
 
-  accumulatedDelta += e.deltaY
+  if (isScrolling) return
+  isScrolling = true
+  if (e.deltaY > 0 && currentIndex.value < sections.value.length - 1) {
+    currentIndex.value++
+  } else if (e.deltaY < 0 && currentIndex.value > 0) {
+    currentIndex.value--
+  }
 
-  if (scrollTimeout) clearTimeout(scrollTimeout)
-
-  scrollTimeout = window.setTimeout(() => {
-    if (accumulatedDelta > SCROLL_THRESHOLD && currentIndex.value < sections.value.length - 1) {
-      currentIndex.value++
-    } else if (accumulatedDelta < -SCROLL_THRESHOLD && currentIndex.value > 0) {
-      currentIndex.value--
-    }
-
-    const target = sections.value[currentIndex.value]
-    if (target) {
-      const targetY = target.offsetTop
-      smoothScrollTo(targetY, 600)
-    }
-
-    accumulatedDelta = 0
-  }, 100)
+  sections.value[currentIndex.value]?.scrollIntoView({ behavior: 'smooth' })
+  setTimeout(() => {
+    isScrolling = false
+  }, 800)
 }
 
 onMounted(async () => {
@@ -107,7 +68,8 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 div.app-container {
   /* scroll-behavior: smooth; */
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-x: hidden;
   div.introduce-container,
   div.career-container,
   div.project-container {
