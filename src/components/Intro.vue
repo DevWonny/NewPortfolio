@@ -1,9 +1,9 @@
 <template>
-  <!-- * 밤하늘 별 뿌린 느낌의 배경효과 필요 -->
-  <canvas ref="canvas" class="fixed top-0 left-0 w-full h-full z-0"></canvas>
-  <!-- * 하단 스크롤 효과 필요 -->
   <div class="intro-container w-screen h-screen">
+    <!-- * 밤하늘 별 뿌린 느낌의 배경효과 필요 -->
+    <canvas ref="canvas" class="fixed top-0 left-0 w-full h-full"></canvas>
     <h1 class="text-9xl">WONNY <br />PORTFOLIO</h1>
+    <!-- * 하단 스크롤 효과 필요 -->
   </div>
 </template>
 
@@ -134,12 +134,11 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped lang="scss">
-canvas {
-  display: block;
-  z-index: -1;
-}
-
 div.intro-container {
+  canvas {
+    display: block;
+    z-index: -1;
+  }
   h1 {
     line-height: 1.2;
   }
