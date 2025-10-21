@@ -1,7 +1,14 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div class="project-container w-screen h-screen">Project</div>
+  <div class="project-container w-screen h-screen">
+    <ProjectCard></ProjectCard>
+    <ProjectCard></ProjectCard>
+    <ProjectCard></ProjectCard>
+  </div>
 </template>
+
+<script setup lang="ts">
+// component
+import ProjectCard from '@/components/ProjectCard.vue'
+</script>
 
 <style scoped lang="scss"></style>

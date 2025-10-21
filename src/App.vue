@@ -4,13 +4,11 @@ import { throttle } from 'lodash'
 // component
 import Intro from '@/components/Intro.vue'
 import Introduce from '@/components/Introduce.vue'
-import Career from '@/components/Career.vue'
 import Project from '@/components/Project.vue'
 import Contact from '@/components/Contact.vue'
 
 const introRef = ref()
 const introduceRef = ref()
-const careerRef = ref()
 const projectRef = ref()
 const contactRef = ref()
 
@@ -42,7 +40,6 @@ onMounted(async () => {
   sections.value = [
     introRef.value?.$el,
     introduceRef.value?.$el,
-    careerRef.value?.$el,
     projectRef.value?.$el,
     contactRef.value?.$el,
   ].filter((el): el is HTMLElement => !!el)
@@ -59,7 +56,6 @@ onBeforeUnmount(() => {
   <div class="app-container">
     <Intro ref="introRef"></Intro>
     <Introduce ref="introduceRef"></Introduce>
-    <Career ref="careerRef"></Career>
     <Project ref="projectRef"></Project>
     <Contact ref="contactRef"></Contact>
   </div>
@@ -67,8 +63,6 @@ onBeforeUnmount(() => {
 
 <style scoped lang="scss">
 div.app-container {
-  /* scroll-behavior: smooth; */
-  /* overflow: hidden; */
   overflow-x: hidden;
   div.introduce-container,
   div.career-container,
