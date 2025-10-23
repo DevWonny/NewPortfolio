@@ -65,9 +65,9 @@ onBeforeUnmount(() => {
 div.app-container {
   overflow-x: hidden;
   div.introduce-container,
-  div.career-container,
   div.project-container {
     background-color: #2a2a3f;
+    padding: 50px 100px;
   }
 
   div.contact-container {

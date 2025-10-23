@@ -1,5 +1,7 @@
 <template>
-  <div class="project-container w-screen h-screen">
+  <div class="project-container w-screen h-screen relative">
+    <ProjectCard></ProjectCard>
+    <ProjectCard></ProjectCard>
     <ProjectCard></ProjectCard>
     <ProjectCard></ProjectCard>
     <ProjectCard></ProjectCard>
@@ -11,4 +13,8 @@
 import ProjectCard from '@/components/ProjectCard.vue'
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+div.project-container {
+  overflow: hidden;
+}
+</style>

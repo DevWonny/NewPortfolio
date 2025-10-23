@@ -17,7 +17,6 @@
 
 <style scoped lang="scss">
 div.introduce-container {
-  padding: 50px 100px;
   div.top-container {
     div.self-intro {
       div.picture {

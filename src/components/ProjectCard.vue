@@ -1,7 +1,7 @@
 <template>
   <div class="project-card-container">
     <motion.div
-      class="motion-container flex items-center justify-center w-[100px] h-[100px]"
+      class="motion-container flex items-center justify-center w-[200px] h-[300px]"
       :layout="true"
       :data-open="isOpen"
       @click="toggleOpen"
@@ -26,10 +26,12 @@ div.project-card-container {
   margin-bottom: 10px;
   div.motion-container {
     background-color: #fff;
-    transition-duration: 0.5s;
     &[data-open='true'] {
       width: 400px;
-      height: 200px;
+      height: 600px;
+      position: relative;
+      top: 50%;
+      left: 50%;
     }
   }
 }
