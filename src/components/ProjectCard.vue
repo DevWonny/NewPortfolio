@@ -6,6 +6,7 @@
       :data-open="isOpen"
       @click="toggleOpen"
     >
+      <p>{{ check }}</p>
       <!-- <motion.div class="motion-content" :data-open="isOpen" :layout="true"></motion.div> -->
     </motion.div>
   </div>
@@ -15,6 +16,13 @@
 import { ref } from 'vue'
 import { motion } from 'motion-v'
 
+interface Props {
+  check: string
+}
+
+// props
+const props = defineProps<Props>()
+
 const isOpen = ref(false)
 const toggleOpen = () => {
   isOpen.value = !isOpen.value
@@ -23,15 +31,15 @@ const toggleOpen = () => {
 
 <style scoped lang="scss">
 div.project-card-container {
-  margin-bottom: 10px;
   div.motion-container {
     background-color: #fff;
+    color: black;
     &[data-open='true'] {
       width: 400px;
       height: 600px;
-      position: relative;
+      /* position: absolute;
       top: 50%;
-      left: 50%;
+      left: 50%; */
     }
   }
 }
