@@ -4,7 +4,7 @@
     <h1 class="contact-message text-8xl">TITLE</h1>
 
     <div class="icon-container flex items-center justify-between">
-      <div :over="isMailOver">
+      <div class="icon">
         <Mail
           class="cursor-pointer"
           @mouseover="isMailOver = true"
@@ -14,7 +14,7 @@
         />
       </div>
 
-      <div :over="isGithubOver">
+      <div class="icon">
         <a href="https://github.com/DevWonny" target="_blank" rel="noopener noreferrer">
           <Github
             class="cursor-pointer"
@@ -25,7 +25,7 @@
         </a>
       </div>
 
-      <div :over="isResumeOver">
+      <div class="icon">
         <a href="/Portfolio_Test.pdf" download="Test.pdf">
           <FileUser
             class="cursor-pointer"
@@ -59,12 +59,12 @@ div.contact-container {
 
   div.icon-container {
     gap: 100px;
-    div {
+    div.icon {
       color: #9a9a9a;
       transition-duration: 0.2s;
-      &[over='true'] {
-        transform: scale(2);
+      &:hover {
         color: #fff;
+        transform: scale(2);
       }
     }
   }

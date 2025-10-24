@@ -72,11 +72,19 @@ onBeforeUnmount(() => {
     <Project ref="projectRef"></Project>
     <Contact ref="contactRef"></Contact>
 
-    <Mouse class="mouse-icon fixed" v-show="currentIndex !== 3" />
+    <div
+      class="mouse-icon-container fixed flex flex-col items-center justify-center gap-[10px] cursor-default"
+      v-show="currentIndex === 0"
+    >
+      <Mouse class="icon relative" :size="50" />
+      <span>SCROLL!</span>
+    </div>
+
     <CircleArrowUp
       class="top-button fixed cursor-pointer"
       v-show="currentIndex === 3"
       @click="onScrollToTop"
+      :size="50"
     />
   </div>
 </template>
@@ -94,14 +102,38 @@ div.app-container {
     background-color: #323248;
   }
 
-  .mouse-icon {
-    bottom: 0;
-    left: 0;
+  div.mouse-icon-container {
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .icon {
+      animation-duration: 1s;
+      animation-name: updown;
+      animation-iteration-count: infinite;
+    }
   }
 
   .top-button {
-    bottom: 0;
-    right: 0;
+    bottom: 50px;
+    right: 100px;
+    color: #9a9a9a;
+    transition-duration: 0.2s;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+@keyframes updown {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 10px;
+  }
+  100% {
+    top: 0px;
   }
 }
 </style>
