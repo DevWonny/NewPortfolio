@@ -26,12 +26,14 @@
       </div>
 
       <div :over="isResumeOver">
-        <FileUser
-          class="cursor-pointer"
-          @mouseover="isResumeOver = true"
-          @mouseleave="isResumeOver = false"
-          :size="50"
-        />
+        <a href="/Portfolio_Test.pdf" download="Test.pdf">
+          <FileUser
+            class="cursor-pointer"
+            @mouseover="isResumeOver = true"
+            @mouseleave="isResumeOver = false"
+            :size="50"
+          />
+        </a>
       </div>
     </div>
   </div>
