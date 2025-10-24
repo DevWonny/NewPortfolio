@@ -15,12 +15,14 @@
       </div>
 
       <div :over="isGithubOver">
-        <Github
-          class="cursor-pointer"
-          @mouseover="isGithubOver = true"
-          @mouseleave="isGithubOver = false"
-          :size="50"
-        />
+        <a href="https://github.com/DevWonny" target="_blank" rel="noopener noreferrer">
+          <Github
+            class="cursor-pointer"
+            @mouseover="isGithubOver = true"
+            @mouseleave="isGithubOver = false"
+            :size="50"
+          />
+        </a>
       </div>
 
       <div :over="isResumeOver">
