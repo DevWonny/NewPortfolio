@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
-import { throttle } from 'lodash'
+import { Mouse, CircleArrowUp } from 'lucide-vue-next'
 // component
 import Intro from '@/components/Intro.vue'
 import Introduce from '@/components/Introduce.vue'
@@ -34,6 +34,19 @@ const onWheel = (e: WheelEvent) => {
   }, 800)
 }
 
+const onScrollToTop = () => {
+  if (currentIndex.value !== 3) return
+
+  if (isScrolling) return
+  currentIndex.value = 0
+  isScrolling = true
+  sections.value[currentIndex.value]?.scrollIntoView({ behavior: 'smooth' })
+
+  setTimeout(() => {
+    isScrolling = false
+  }, 800)
+}
+
 onMounted(async () => {
   await nextTick()
 
@@ -58,6 +71,13 @@ onBeforeUnmount(() => {
     <Introduce ref="introduceRef"></Introduce>
     <Project ref="projectRef"></Project>
     <Contact ref="contactRef"></Contact>
+
+    <Mouse class="mouse-icon fixed" v-show="currentIndex !== 3" />
+    <CircleArrowUp
+      class="top-button fixed cursor-pointer"
+      v-show="currentIndex === 3"
+      @click="onScrollToTop"
+    />
   </div>
 </template>
 
@@ -72,6 +92,16 @@ div.app-container {
 
   div.contact-container {
     background-color: #323248;
+  }
+
+  .mouse-icon {
+    bottom: 0;
+    left: 0;
+  }
+
+  .top-button {
+    bottom: 0;
+    right: 0;
   }
 }
 </style>
