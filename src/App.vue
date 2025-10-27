@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
 import { Mouse, CircleArrowUp } from 'lucide-vue-next'
 // component
 import Intro from '@/components/Intro.vue'
@@ -15,6 +15,7 @@ const contactRef = ref()
 const sections = ref<HTMLElement[]>([])
 const currentIndex = ref(0)
 let isScrolling = false
+const isScrollTop = ref(true)
 
 // Wheel Event
 const onWheel = (e: WheelEvent) => {
@@ -22,6 +23,7 @@ const onWheel = (e: WheelEvent) => {
 
   if (isScrolling) return
   isScrolling = true
+
   if (e.deltaY > 0 && currentIndex.value < sections.value.length - 1) {
     currentIndex.value++
   } else if (e.deltaY < 0 && currentIndex.value > 0) {
@@ -47,6 +49,14 @@ const onScrollToTop = () => {
   }, 800)
 }
 
+const onCheckScrollTop = () => {
+  if (window.scrollY === 0) {
+    isScrollTop.value = true
+  } else {
+    isScrollTop.value = false
+  }
+}
+
 onMounted(async () => {
   await nextTick()
 
@@ -58,10 +68,12 @@ onMounted(async () => {
   ].filter((el): el is HTMLElement => !!el)
 
   window.addEventListener('wheel', onWheel, { passive: false })
+  window.addEventListener('scroll', onCheckScrollTop)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('wheel', onWheel)
+  window.removeEventListener('scroll', onCheckScrollTop)
 })
 </script>
 
@@ -74,7 +86,7 @@ onBeforeUnmount(() => {
 
     <div
       class="mouse-icon-container fixed flex flex-col items-center justify-center gap-[10px] cursor-default"
-      v-show="currentIndex === 0"
+      v-show="isScrollTop"
     >
       <Mouse class="icon relative" :size="50" />
       <span>SCROLL!</span>
