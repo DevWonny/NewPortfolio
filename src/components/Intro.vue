@@ -135,6 +135,7 @@ onBeforeUnmount(() => {
 
 <style scoped lang="scss">
 div.intro-container {
+  padding: 50px 100px;
   canvas {
     display: block;
     z-index: -1;
