@@ -57,6 +57,14 @@ const onCheckScrollTop = () => {
   }
 }
 
+const onProjectOverlayCheck = (check: boolean) => {
+  if (check) {
+    isScrolling = true
+  } else {
+    isScrolling = false
+  }
+}
+
 onMounted(async () => {
   await nextTick()
 
@@ -81,7 +89,7 @@ onBeforeUnmount(() => {
   <div class="app-container">
     <Intro ref="introRef"></Intro>
     <Introduce ref="introduceRef"></Introduce>
-    <Project ref="projectRef"></Project>
+    <Project ref="projectRef" @projectOverlay="onProjectOverlayCheck"></Project>
     <Contact ref="contactRef"></Contact>
 
     <div
