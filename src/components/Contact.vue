@@ -1,7 +1,7 @@
 <template>
   <div class="contact-container w-screen h-screen flex flex-col items-center justify-center">
     <!-- ! 어떤 문구 넣을지 생각하기... & Framer Motion 활용 하기 -->
-    <h1 class="contact-message text-8xl">TITLE</h1>
+    <h1 class="contact-message text-8xl">CONTACT ME</h1>
 
     <div class="icon-container flex items-center justify-between">
       <div class="icon">
