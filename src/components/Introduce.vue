@@ -40,11 +40,21 @@
       </div>
     </div>
 
-    <div class="skill-container"></div>
+    <div class="skill-container h-fit flex flex-wrap justify-start">
+      <div
+        v-for="(icon, i) in iconArray"
+        :key="`skill-item-${icon}-${i}`"
+        class="w-1/4 h-[100px] flex justify-center items-center flex-col gap-[10px]"
+      >
+        <Icon :icon="`simple-icons:${icon}`" width="32" height="32" />
+        <p class="text-xs w-full text-center">{{ onConvertName(icon) }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import {
   Cake,
   MapPinHouse,
@@ -54,6 +64,54 @@ import {
   Award,
   BriefcaseBusiness,
 } from 'lucide-vue-next'
+import { Icon } from '@iconify/vue'
+
+const iconArray = ref([
+  'html5',
+  'css3',
+  'sass',
+  'tailwindcss',
+  'javascript',
+  'typescript',
+  'react',
+  'vuedotjs',
+  'nextdotjs',
+  'nuxt',
+])
+
+const onConvertName = (name: string) => {
+  switch (name) {
+    case 'html5':
+      return 'HTML'
+
+    case 'css3':
+      return 'CSS'
+
+    case 'sass':
+      return 'SCSS'
+
+    case 'tailwindcss':
+      return 'Tailwind'
+
+    case 'javascript':
+      return 'Javascript'
+
+    case 'typescript':
+      return 'Typescript'
+
+    case 'react':
+      return 'React'
+
+    case 'vuedotjs':
+      return 'Vue'
+
+    case 'nextdotjs':
+      return 'Next.js'
+
+    case 'nuxt':
+      return 'Nuxt.js'
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -94,10 +152,8 @@ div.introduce-container {
     }
   }
 
-  div.skill-container {
-    background-color: gray;
-    width: 30%;
-    height: 100px;
-  }
+  /* div.skill-container {
+    background-color: red;
+  } */
 }
 </style>
