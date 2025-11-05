@@ -1,5 +1,5 @@
 <template>
-  <div class="project-card-container">
+  <div class="project-card-container" :class="!isOpen && 'cursor-pointer'">
     <motion.div
       class="motion-container flex items-center justify-center w-[200px] h-[300px]"
       :layout="true"
@@ -7,6 +7,7 @@
       @click="toggleOpen()"
     >
       <p>{{ check }}</p>
+      <a v-if="isOpen" href="https://www.naver.com" target="_blank">test</a>
     </motion.div>
   </div>
 </template>
