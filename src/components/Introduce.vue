@@ -1,7 +1,9 @@
 <template>
   <div class="introduce-container w-screen h-screen flex justify-between">
     <div class="self-intro flex flex-col items-center gap-[50px] w-1/3">
-      <div class="picture text-center">Picture</div>
+      <div class="picture text-center overflow-hidden relative flex justify-center items-center">
+        <img src="/profile.jpg" alt="Profile" />
+      </div>
       <div class="short-intro">Short Intro</div>
     </div>
 
@@ -117,7 +119,6 @@ const onConvertName = (name: string) => {
 <style scoped lang="scss">
 div.introduce-container {
   div.self-intro {
-    background-color: red;
     div.picture {
       border-radius: 50%;
       background-color: white;
