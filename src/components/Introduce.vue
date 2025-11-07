@@ -1,11 +1,11 @@
 <template>
   <div class="introduce-container w-screen h-screen flex justify-between">
-    <div class="self-intro flex flex-col gap-[50px]">
+    <div class="self-intro flex flex-col items-center gap-[50px] w-1/3">
       <div class="picture text-center">Picture</div>
       <div class="short-intro">Short Intro</div>
     </div>
 
-    <div class="self-history flex flex-col">
+    <div class="self-history flex flex-col w-1/3">
       <!-- * Profile -->
       <div class="profile-container">
         <h2 class="profile"><CircleUserRound />PROFILE</h2>
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="skill-container h-fit flex flex-wrap justify-start">
+    <div class="skill-container h-fit flex flex-wrap justify-start w-1/3">
       <div
         v-for="(icon, i) in iconArray"
         :key="`skill-item-${icon}-${i}`"
@@ -117,11 +117,12 @@ const onConvertName = (name: string) => {
 <style scoped lang="scss">
 div.introduce-container {
   div.self-intro {
+    background-color: red;
     div.picture {
       border-radius: 50%;
       background-color: white;
-      width: 300px;
-      height: 300px;
+      width: 200px;
+      height: 200px;
       color: #000;
     }
     div.short-intro {
@@ -152,8 +153,7 @@ div.introduce-container {
     }
   }
 
-  /* div.skill-container {
-    background-color: red;
-  } */
+  div.skill-container {
+  }
 }
 </style>
