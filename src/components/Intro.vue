@@ -54,7 +54,7 @@ const createShootingStar = (width: number) => ({
   y: random(0, 100),
   length: random(50, 150),
   speed: random(5, 10),
-  angle: Math.PI / 45, // 45도
+  angle: Math.PI / 10, // 45도
 })
 
 // Canvas Resize

@@ -127,7 +127,6 @@ div.introduce-container {
       color: #000;
     }
     div.short-intro {
-      background-color: gray;
       width: 300px;
       height: 100px;
     }
