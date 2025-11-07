@@ -26,7 +26,7 @@
       </div>
 
       <div class="icon">
-        <a href="/Portfolio_Test.pdf" download="Test.pdf">
+        <a href="/resume.pdf" download="윤철원_이력서.pdf">
           <FileUser
             class="cursor-pointer"
             @mouseover="isResumeOver = true"
