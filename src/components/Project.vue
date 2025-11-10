@@ -2,14 +2,18 @@
   <div class="project-container w-screen h-screen relative flex flex-col">
     <div v-if="overlay" class="overlay absolute w-screen h-screen"></div>
     <div class="company-project flex w-full h-auto">
-      <ProjectCard :check="'company1'" @stateCheck="onOverlay"></ProjectCard>
-      <ProjectCard :check="'company2'" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard :img="'company_1.png'" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard
+        :img="`company_2.png`"
+        :mainImg="`company_2_main.png`"
+        @stateCheck="onOverlay"
+      ></ProjectCard>
     </div>
 
     <div class="personal-project flex w-full h-auto justify-end">
-      <ProjectCard :check="'personal1'" @stateCheck="onOverlay"></ProjectCard>
-      <ProjectCard :check="'personal2'" @stateCheck="onOverlay"></ProjectCard>
-      <ProjectCard :check="'personal3'" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard @stateCheck="onOverlay"></ProjectCard>
     </div>
   </div>
 </template>

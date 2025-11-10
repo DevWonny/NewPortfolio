@@ -1,14 +1,19 @@
 <template>
-  <div class="project-card-container" :class="!isOpen && 'cursor-pointer'">
+  <div class="project-card-container" :class="!isOpen && img && 'cursor-pointer effect'">
     <motion.div
       class="motion-container flex items-center justify-center w-[200px] h-[300px]"
       :layout="true"
       :data-open="isOpen"
       @click="toggleOpen()"
     >
-      <p>{{ check }}</p>
-      <a v-if="isOpen" href="https://www.naver.com" target="_blank">test</a>
+      <!-- * 회사 프로젝트 - 좌측 이미지 / 우측 경력 기술서 -->
+      <!-- * 개인 프로젝트 - 좌측 이미지 / 우측 설명 및 Git Url -->
+      <img v-if="!isOpen && img" :src="`/${img}`" alt="Thumbnail" />
+      <div v-if="isOpen" class="main">
+        <img v-if="mainImg" :src="`/${mainImg}`" alt="Main Image" />
+      </div>
     </motion.div>
+    <!-- * 해당 div가 열였을때 하단 배열이 깨지지 않도록 하기 위한 div -->
     <div v-if="isOpen" class="empty relative w-[200px] h-[300px]"></div>
   </div>
 </template>
@@ -18,7 +23,8 @@ import { ref } from 'vue'
 import { motion } from 'motion-v'
 
 interface Props {
-  check: string
+  img?: string
+  mainImg?: string
 }
 
 // props
@@ -35,22 +41,37 @@ const toggleOpen = () => {
 <style scoped lang="scss">
 div.project-card-container {
   height: 300px;
-  &:hover {
-    animation-name: shake;
-    animation-duration: 0.2s;
-    animation-iteration-count: infinite;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.effect {
+    &:hover {
+      animation-name: shake;
+      animation-duration: 0.2s;
+      animation-iteration-count: infinite;
+    }
   }
 
   div.motion-container {
-    background-color: #fff;
-    color: black;
+    color: #fff;
     z-index: 1;
     &[data-open='true'] {
-      width: 400px;
+      width: 1000px;
       height: 600px;
       position: absolute;
       top: calc(50% - 300px);
-      left: calc(50% - 200px);
+      left: calc(50% - 500px);
+      background-color: #2a2a3f;
+    }
+
+    div.main {
+      img {
+        width: 40%;
+        object-fit: cover;
+      }
     }
   }
 }
