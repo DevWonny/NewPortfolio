@@ -9,6 +9,7 @@
       <p>{{ check }}</p>
       <a v-if="isOpen" href="https://www.naver.com" target="_blank">test</a>
     </motion.div>
+    <div v-if="isOpen" class="empty relative w-[200px] h-[300px]"></div>
   </div>
 </template>
 
@@ -34,9 +35,11 @@ const toggleOpen = () => {
 <style scoped lang="scss">
 div.project-card-container {
   height: 300px;
+
   div.motion-container {
     background-color: #fff;
     color: black;
+    z-index: 1;
     &[data-open='true'] {
       width: 400px;
       height: 600px;
