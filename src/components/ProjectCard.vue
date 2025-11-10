@@ -35,6 +35,11 @@ const toggleOpen = () => {
 <style scoped lang="scss">
 div.project-card-container {
   height: 300px;
+  &:hover {
+    animation-name: shake;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+  }
 
   div.motion-container {
     background-color: #fff;
@@ -47,6 +52,21 @@ div.project-card-container {
       top: calc(50% - 300px);
       left: calc(50% - 200px);
     }
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 </style>
