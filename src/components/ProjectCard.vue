@@ -6,10 +6,13 @@
       :data-open="isOpen"
       @click="toggleOpen()"
     >
-      <!-- * 회사 프로젝트 - 좌측 이미지 / 우측 경력 기술서 -->
-      <!-- * 개인 프로젝트 - 좌측 이미지 / 우측 설명 및 Git Url -->
+      <!-- * Open 전 표출 -->
       <img v-if="!isOpen && img" :src="`/${img}`" alt="Thumbnail" />
+
+      <!-- * Open 했을 경우 표출 -->
       <div v-if="isOpen" class="main">
+        <!-- * 회사 프로젝트 - 좌측 이미지 / 우측 경력 기술서 -->
+        <!-- * 개인 프로젝트 - 좌측 이미지 / 우측 설명 및 Git Url -->
         <img v-if="mainImg" :src="`/${mainImg}`" alt="Main Image" />
       </div>
     </motion.div>

@@ -11,9 +11,9 @@
     </div>
 
     <div class="personal-project flex w-full h-auto justify-end">
-      <ProjectCard @stateCheck="onOverlay"></ProjectCard>
-      <ProjectCard @stateCheck="onOverlay"></ProjectCard>
-      <ProjectCard @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard :img="`bookmarker.png`" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard :img="`shopmarker.png`" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard :img="`stock_dashboard.png`" @stateCheck="onOverlay"></ProjectCard>
     </div>
   </div>
 </template>
