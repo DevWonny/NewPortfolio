@@ -4,7 +4,11 @@
       <div class="picture text-center overflow-hidden relative flex justify-center items-center">
         <img src="/profile.jpg" alt="Profile" />
       </div>
-      <div class="short-intro">Short Intro</div>
+      <div class="short-intro overflow-hidden">
+        {{
+          `안녕하세요.\n3년차 프론트앤드 개발자 윤철원입니다.\nReact, Vue 등 다양한 프레임워크를 다루어 보았으며,\n협업을 중요하게 생각하는 개발자 입니다.`
+        }}
+      </div>
     </div>
 
     <div class="self-history flex flex-col w-1/3">
@@ -127,8 +131,7 @@ div.introduce-container {
       color: #000;
     }
     div.short-intro {
-      width: 300px;
-      height: 100px;
+      white-space: pre;
     }
   }
 
@@ -151,9 +154,6 @@ div.introduce-container {
       font-size: 18px;
       gap: 10px;
     }
-  }
-
-  div.skill-container {
   }
 }
 </style>
