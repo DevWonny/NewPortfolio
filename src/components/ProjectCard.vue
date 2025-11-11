@@ -44,6 +44,9 @@ const toggleOpen = () => {
 <style scoped lang="scss">
 div.project-card-container {
   height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+
   img {
     width: 100%;
     height: 100%;
