@@ -19,6 +19,7 @@
           <!-- * 개인 플젝일 경우 -> 간략 경력 기술 대신 해당 플젝을 만든 계기 입력 + Github Link + 프로젝트 사이트 Link -->
           <div class="description" v-if="projectId === 0">
             <p>프로젝트 명 : 오토앤 공임비교 앱</p>
+            <p>연계 및 소속 회사 : 오토앤 / 프래프</p>
             <p>주요 업무 : 프론트엔드 개발 업무</p>
             <p>
               {{
@@ -29,7 +30,20 @@
             <p>개발 기간 : 2022.05 ~ 2022. 08</p>
             <p>투입 인원 : 7명 (디자이너 1명, 퍼블리셔 1명, 프론트엔드 3명, 백엔드 1명)</p>
           </div>
-          <div class="description" v-if="projectId === 1">1</div>
+
+          <div class="description" v-if="projectId === 1">
+            <p>프로젝트 명 : FanFan(가칭)</p>
+            <p>소속 회사 : 비투지게임즈</p>
+            <p>주요 업무 : 프론트엔드 개발 업무</p>
+            <p>
+              {{
+                `담당 업무 : 메인 페이지 / 마이페이지 / 판타지 게임(라이브) 페이지 \n/ 시뮬레이션 페이지 / 플레이트 마켓(카드 구입) 페이지 / 스카우트(카드 강화) 페이지 \n/ 샵 페이지(퍼블리싱) / 랭킹 페이지`
+              }}
+            </p>
+            <p>기술 스택 : Typescript / Vue / Nuxt.js / Pinia / Jira / Notion / Postman</p>
+            <p>개발 기간 : 2022.12 ~ 2025.01</p>
+            <p>투입 인원 : 12명 ~ 15명 (프로젝트 진행 중 인력 교체로 인한 인원변동 발생)</p>
+          </div>
           <div class="description" v-if="projectId === 2">2</div>
           <div class="description" v-if="projectId === 3">3</div>
           <div class="description" v-if="projectId === 4">4</div>
