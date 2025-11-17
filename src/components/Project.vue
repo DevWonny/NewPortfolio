@@ -2,18 +2,28 @@
   <div class="project-container w-screen h-screen relative flex flex-col">
     <div v-if="overlay" class="overlay absolute w-screen h-screen"></div>
     <div class="company-project flex w-full h-auto">
-      <ProjectCard :img="'company_1.png'" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard
+        :img="'company_1.png'"
+        :mainImg="'company_1.png'"
+        :projectId="0"
+        @stateCheck="onOverlay"
+      ></ProjectCard>
       <ProjectCard
         :img="`company_2.png`"
         :mainImg="`company_2_main.png`"
+        :projectId="1"
         @stateCheck="onOverlay"
       ></ProjectCard>
     </div>
 
     <div class="personal-project flex w-full h-auto justify-end">
-      <ProjectCard :img="`bookmarker.png`" @stateCheck="onOverlay"></ProjectCard>
-      <ProjectCard :img="`shopmarker.png`" @stateCheck="onOverlay"></ProjectCard>
-      <ProjectCard :img="`stock_dashboard.png`" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard :img="`bookmarker.png`" :projectId="2" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard :img="`shopmarker.png`" :projectId="3" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard
+        :img="`stock_dashboard.png`"
+        :projectId="4"
+        @stateCheck="onOverlay"
+      ></ProjectCard>
     </div>
   </div>
 </template>

@@ -10,10 +10,30 @@
       <img v-if="!isOpen && img" :src="`/${img}`" alt="Thumbnail" />
 
       <!-- * Open 했을 경우 표출 -->
-      <div v-if="isOpen" class="main">
+      <div v-if="isOpen" class="main" :class="`${mainImg && 'flex justify-between'}`">
         <!-- * 회사 프로젝트 - 좌측 이미지 / 우측 경력 기술서 -->
         <!-- * 개인 프로젝트 - 좌측 이미지 / 우측 설명 및 Git Url -->
         <img v-if="mainImg" :src="`/${mainImg}`" alt="Main Image" />
+        <div class="description-container">
+          <!-- * 프로젝트 명칭 / 사용 기술 스텍 / 기간 / 투입 인원 / 역할 / 간략 경력 기술 -->
+          <!-- * 개인 플젝일 경우 -> 간략 경력 기술 대신 해당 플젝을 만든 계기 입력 + Github Link + 프로젝트 사이트 Link -->
+          <div class="description" v-if="projectId === 0">
+            <p>프로젝트 명 : 오토앤 공임비교 앱</p>
+            <p>주요 업무 : 프론트엔드 개발 업무</p>
+            <p>
+              {{
+                `담당 업무 : Validation 작업 / 회원가입 작업 /\n차량 등록 및 수정 페이지 작업 / 예약페이지 작업 / 마이페이지 작업`
+              }}
+            </p>
+            <p>기술 스택 : Javascript / React</p>
+            <p>개발 기간 : 2022.05 ~ 2022. 08</p>
+            <p>투입 인원 : 7명 (디자이너 1명, 퍼블리셔 1명, 프론트엔드 3명, 백엔드 1명)</p>
+          </div>
+          <div class="description" v-if="projectId === 1">1</div>
+          <div class="description" v-if="projectId === 2">2</div>
+          <div class="description" v-if="projectId === 3">3</div>
+          <div class="description" v-if="projectId === 4">4</div>
+        </div>
       </div>
     </motion.div>
     <!-- * 해당 div가 열였을때 하단 배열이 깨지지 않도록 하기 위한 div -->
@@ -28,6 +48,7 @@ import { motion } from 'motion-v'
 interface Props {
   img?: string
   mainImg?: string
+  projectId: number
 }
 
 // props
@@ -74,9 +95,22 @@ div.project-card-container {
     }
 
     div.main {
+      padding: 0 40px;
       img {
         width: 40%;
         object-fit: cover;
+      }
+
+      div.description-container {
+        /* padding: 10px 20px; */
+        div.description {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          p {
+            white-space: pre-wrap;
+          }
+        }
       }
     }
   }
