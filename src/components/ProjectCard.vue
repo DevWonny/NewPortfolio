@@ -6,6 +6,9 @@
       :data-open="isOpen"
       @click="toggleOpen()"
     >
+      <button v-if="isOpen" class="close-btn absolute cursor-pointer" @click.stop="modalClose">
+        <X />
+      </button>
       <!-- * Open 전 표출 -->
       <img v-if="!isOpen && img" :src="`/${img}`" alt="Thumbnail" />
 
@@ -58,6 +61,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { motion } from 'motion-v'
+import { X } from 'lucide-vue-next'
 
 interface Props {
   img?: string
@@ -71,7 +75,15 @@ const $emit = defineEmits(['stateCheck'])
 const isOpen = ref(false)
 
 const toggleOpen = () => {
-  isOpen.value = !isOpen.value
+  if (isOpen.value) {
+    return
+  }
+  isOpen.value = true
+  $emit('stateCheck', isOpen.value)
+}
+
+const modalClose = () => {
+  isOpen.value = false
   $emit('stateCheck', isOpen.value)
 }
 </script>
@@ -95,7 +107,14 @@ div.project-card-container {
       animation-iteration-count: infinite;
     }
   }
-
+  button.close-btn {
+    top: 20px;
+    right: 20px;
+    color: #9a9a9a;
+    &:hover {
+      color: #fff;
+    }
+  }
   div.motion-container {
     color: #fff;
     z-index: 1;
@@ -109,7 +128,7 @@ div.project-card-container {
     }
 
     div.main {
-      padding: 0 40px;
+      padding: 20px 40px;
       img {
         width: 40%;
         object-fit: cover;
