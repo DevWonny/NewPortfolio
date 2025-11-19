@@ -43,13 +43,44 @@
                 `담당 업무 : 메인 페이지 / 마이페이지 / 판타지 게임(라이브) 페이지 \n/ 시뮬레이션 페이지 / 플레이트 마켓(카드 구입) 페이지 / 스카우트(카드 강화) 페이지 \n/ 샵 페이지(퍼블리싱) / 랭킹 페이지`
               }}
             </p>
-            <p>기술 스택 : Typescript / Vue / Nuxt.js / Pinia / Jira / Notion / Postman</p>
+            <p>기술 스택 : Typescript / Vue / Nuxt.js / Pinia / SCSS / Jira / Notion / Postman</p>
             <p>개발 기간 : 2022.12 ~ 2025.01</p>
             <p>투입 인원 : 12명 ~ 15명 (프로젝트 진행 중 인력 교체로 인한 인원변동 발생)</p>
           </div>
-          <div class="description" v-if="projectId === 2">2</div>
-          <div class="description" v-if="projectId === 3">3</div>
-          <div class="description" v-if="projectId === 4">4</div>
+
+          <div class="description" v-if="projectId === 2">
+            <p>프로젝트 명 : Bookmarker</p>
+            <p>소개 : 당시 책 읽는 빈도가 많아져 생각하게 된 아이디어로 만든 개인 프로젝트.</p>
+            <p>기술 스택 : Typescript / Next.js / SCSS / TailwindCSS / Zustand</p>
+            <p>개발 기간 : 2025.04 ~ 2025.06</p>
+            <a href="https://bookmarker-liard.vercel.app/" target="_blank">바로가기</a>
+          </div>
+
+          <div class="description" v-if="projectId === 3">
+            <p>프로젝트 명 : Shopmarker</p>
+            <p>소개 : 카드사 연결을 경험해보지 못해서 경험을 해보기 위해 만든 개인 프로젝트.</p>
+            <p>
+              기술 스택 : Typescript / Next.js / SCSS / TailwindCSS / Zustand /토스 페이먼츠 API /
+              Fake Store API / Firebase Auth
+            </p>
+            <p>개발 기간 : 2025.06 ~ 2025.08</p>
+            <!-- * 링크 변경 필요 -->
+            <a href="https://bookmarker-liard.vercel.app/" target="_blank">바로가기</a>
+          </div>
+
+          <div class="description" v-if="projectId === 4">
+            <p>프로젝트 명 : StockDashboard</p>
+            <p>
+              소개 : 주식 관련 뉴스를 보다 차트 및 실시간 통신에 관한 기능을 경험하고자 시작한 개인
+              프로젝트.
+            </p>
+            <p>
+              기술 스택 : Typescript / Next.js / SCSS / TailwindCSS / Socket.io / Express / Finnhub
+            </p>
+            <p>개발 기간 : 2025.09 ~ 2025.11</p>
+            <!-- * 링크 변경 필요 -->
+            <a href="https://bookmarker-liard.vercel.app/" target="_blank">바로가기</a>
+          </div>
         </div>
       </div>
     </motion.div>
