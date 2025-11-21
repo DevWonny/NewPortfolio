@@ -13,10 +13,11 @@
       <img v-if="!isOpen && img" :src="`/${img}`" alt="Thumbnail" />
 
       <!-- * Open 했을 경우 표출 -->
-      <div v-if="isOpen" class="main" :class="`${mainImg && 'flex justify-between'}`">
+      <div v-if="isOpen" class="main flex justify-between">
         <!-- * 회사 프로젝트 - 좌측 이미지 / 우측 경력 기술서 -->
         <!-- * 개인 프로젝트 - 좌측 이미지 / 우측 설명 및 Git Url -->
         <img v-if="mainImg" :src="`/${mainImg}`" alt="Main Image" />
+        <img v-if="!mainImg" :src="`/${img}`" alt="Image" />
         <div class="description-container">
           <!-- * 프로젝트 명칭 / 사용 기술 스텍 / 기간 / 투입 인원 / 역할 / 간략 경력 기술 -->
           <!-- * 개인 플젝일 경우 -> 간략 경력 기술 대신 해당 플젝을 만든 계기 입력 + Github Link + 프로젝트 사이트 Link -->
@@ -84,6 +85,7 @@
         </div>
       </div>
     </motion.div>
+
     <!-- * 해당 div가 열였을때 하단 배열이 깨지지 않도록 하기 위한 div -->
     <div v-if="isOpen" class="empty relative w-[200px] h-[300px]"></div>
   </div>
