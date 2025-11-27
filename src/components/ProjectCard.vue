@@ -79,10 +79,7 @@
               기술 스택 : Typescript / Next.js / SCSS / TailwindCSS / Socket.io / Express / Finnhub
             </p>
             <p>개발 기간 : 2025.09 ~ 2025.11</p>
-            <!-- * 링크 변경 필요 -->
-            <a href="https://stockdashboard-production-11f6.up.railway.app/" target="_blank"
-              >바로가기</a
-            >
+            <a href="https://stock-dashboard-ten-rho.vercel.app/" target="_blank">바로가기</a>
           </div>
         </div>
       </div>
