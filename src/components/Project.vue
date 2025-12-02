@@ -17,7 +17,12 @@
     </div>
 
     <div class="personal-project flex w-full h-auto justify-end">
-      <ProjectCard :img="`bookmarker`" :projectId="2" @stateCheck="onOverlay"></ProjectCard>
+      <ProjectCard
+        :img="`bookmarker`"
+        :mainImg="`bookmarkerMain`"
+        :projectId="2"
+        @stateCheck="onOverlay"
+      ></ProjectCard>
       <ProjectCard :img="`stockDashboard`" :projectId="3" @stateCheck="onOverlay"></ProjectCard>
     </div>
   </div>

@@ -50,9 +50,19 @@
           </div>
 
           <div class="description" v-if="projectId === 2">
-            <p>프로젝트 명 : Bookmarker</p>
-            <p>소개 : 당시 책 읽는 빈도가 많아져 생각하게 된 아이디어로 만든 개인 프로젝트.</p>
+            <h1>프로젝트 명 : Bookmarker</h1>
+            <p>
+              {{
+                `소개 : 도서를 추천하고, 유저가 직접 검색하여 도서를 찾을 수 있는 사이트.\n그리고 본인 위치를 기반으로 주변 서점을 찾을수 있는 사이트.`
+              }}
+            </p>
+            <p>
+              {{ `계기 : 당시 책 읽는 빈도가 많아져 생각하게 된\n아이디어로 만든 개인 프로젝트.` }}
+            </p>
             <p>기술 스택 : Typescript / Next.js / SCSS / TailwindCSS / Zustand</p>
+            <p>
+              {{ `주요 기능 : 회원가입 및 로그인, 카카오맵 API 연동,\n알라딘 Open API 연동 등` }}
+            </p>
             <p>개발 기간 : 2025.04 ~ 2025.06</p>
             <a href="https://bookmarker-liard.vercel.app/" target="_blank">바로가기</a>
           </div>
@@ -60,12 +70,21 @@
           <div class="description" v-if="projectId === 3">
             <p>프로젝트 명 : StockDashboard</p>
             <p>
-              소개 : 주식 관련 뉴스를 보다 차트 및 실시간 통신에 관한 기능을 경험하고자 시작한 개인
-              프로젝트.
+              {{
+                `소개 : 비트코인 및 미국 주요 기업들의 주식에 대해 차트를 표출하고,\n기업들의 정보를 표출하는 프로젝트. `
+              }}
             </p>
             <p>
-              기술 스택 : Typescript / Next.js / SCSS / TailwindCSS / Socket.io / Express / Finnhub
+              {{
+                `계기 : 주식 관련 뉴스를 보다 차트 및 실시간 통신에 관한 기능을 경험하고자\n시작한 개인 프로젝트.`
+              }}
             </p>
+            <p>
+              {{
+                `기술 스택 : Typescript / Next.js / SCSS / TailwindCSS\n/ Socket.io / Express / Finnhub`
+              }}
+            </p>
+            <p>{{ `주요 기능 : 실시간 통신 및 차트 구현` }}</p>
             <p>개발 기간 : 2025.09 ~ 2025.11</p>
             <a href="https://stock-dashboard-ten-rho.vercel.app/" target="_blank">바로가기</a>
           </div>
@@ -88,6 +107,7 @@ import company2 from '@/assets/company_2.png'
 import company2Main from '@/assets/company_2_main.png'
 import stockDashboard from '@/assets/stock_dashboard.png'
 import bookmarker from '@/assets/bookmarker.png'
+import bookmarkerMain from '@/assets/bookmarker_main.png'
 
 interface Props {
   img?: string
@@ -123,6 +143,8 @@ const onConvertImage = (image: string) => {
       return company2Main
     case 'bookmarker':
       return bookmarker
+    case 'bookmarkerMain':
+      return bookmarkerMain
     case 'stockDashboard':
       return stockDashboard
   }
@@ -169,20 +191,35 @@ div.project-card-container {
     }
 
     div.main {
-      padding: 20px 40px;
+      padding: 30px 40px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
       img {
         width: 40%;
-        object-fit: cover;
+        object-fit: contain;
       }
 
       div.description-container {
-        /* padding: 10px 20px; */
+        height: 100%;
         div.description {
           display: flex;
           flex-direction: column;
           gap: 10px;
+          position: relative;
+          height: 100%;
           p {
             white-space: pre-wrap;
+          }
+          a {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: #9a9a9a;
+            &:hover {
+              color: #fff;
+            }
           }
         }
       }
