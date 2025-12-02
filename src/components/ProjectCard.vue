@@ -58,18 +58,6 @@
           </div>
 
           <div class="description" v-if="projectId === 3">
-            <p>프로젝트 명 : Shopmarker</p>
-            <p>소개 : 카드사 연결을 경험해보지 못해서 경험을 해보기 위해 만든 개인 프로젝트.</p>
-            <p>
-              기술 스택 : Typescript / Next.js / SCSS / TailwindCSS / Zustand /토스 페이먼츠 API /
-              Fake Store API / Firebase Auth
-            </p>
-            <p>개발 기간 : 2025.06 ~ 2025.08</p>
-            <!-- * 링크 변경 필요 -->
-            <a href="https://bookmarker-liard.vercel.app/" target="_blank">바로가기</a>
-          </div>
-
-          <div class="description" v-if="projectId === 4">
             <p>프로젝트 명 : StockDashboard</p>
             <p>
               소개 : 주식 관련 뉴스를 보다 차트 및 실시간 통신에 관한 기능을 경험하고자 시작한 개인
