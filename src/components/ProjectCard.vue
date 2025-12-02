@@ -10,14 +10,14 @@
         <X />
       </button>
       <!-- * Open 전 표출 -->
-      <img v-if="!isOpen && img" :src="`/${img}`" alt="Thumbnail" />
+      <img v-if="!isOpen && img" :src="onConvertImage(img)" alt="Thumbnail" />
 
       <!-- * Open 했을 경우 표출 -->
       <div v-if="isOpen" class="main flex justify-between">
         <!-- * 회사 프로젝트 - 좌측 이미지 / 우측 경력 기술서 -->
         <!-- * 개인 프로젝트 - 좌측 이미지 / 우측 설명 및 Git Url -->
-        <img v-if="mainImg" :src="`/${mainImg}`" alt="Main Image" />
-        <img v-if="!mainImg" :src="`/${img}`" alt="Image" />
+        <img v-if="mainImg" :src="onConvertImage(mainImg)" alt="Main Image" />
+        <img v-if="!mainImg && img" :src="onConvertImage(img)" alt="Image" />
         <div class="description-container">
           <!-- * 프로젝트 명칭 / 사용 기술 스텍 / 기간 / 투입 인원 / 역할 / 간략 경력 기술 -->
           <!-- * 개인 플젝일 경우 -> 간략 경력 기술 대신 해당 플젝을 만든 계기 입력 + Github Link + 프로젝트 사이트 Link -->
@@ -82,6 +82,12 @@
 import { ref } from 'vue'
 import { motion } from 'motion-v'
 import { X } from 'lucide-vue-next'
+// image
+import company1 from '@/assets/company_1.png'
+import company2 from '@/assets/company_2.png'
+import company2Main from '@/assets/company_2_main.png'
+import stockDashboard from '@/assets/stock_dashboard.png'
+import bookmarker from '@/assets/bookmarker.png'
 
 interface Props {
   img?: string
@@ -105,6 +111,21 @@ const toggleOpen = () => {
 const modalClose = () => {
   isOpen.value = false
   $emit('stateCheck', isOpen.value)
+}
+
+const onConvertImage = (image: string) => {
+  switch (image) {
+    case 'company1':
+      return company1
+    case 'company2':
+      return company2
+    case 'company2Main':
+      return company2Main
+    case 'bookmarker':
+      return bookmarker
+    case 'stockDashboard':
+      return stockDashboard
+  }
 }
 </script>
 

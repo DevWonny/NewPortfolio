@@ -2,7 +2,7 @@
   <div class="introduce-container w-screen h-screen flex justify-between">
     <div class="self-intro flex flex-col items-center gap-[50px] w-1/3">
       <div class="picture text-center overflow-hidden relative flex justify-center items-center">
-        <img src="/profile.jpg" alt="Profile" />
+        <img :src="profile" alt="Profile" />
       </div>
       <div class="short-intro overflow-hidden">
         {{
@@ -71,6 +71,8 @@ import {
   BriefcaseBusiness,
 } from 'lucide-vue-next'
 import { Icon } from '@iconify/vue'
+// image
+import profile from '@/assets/profile.jpg'
 
 const iconArray = ref([
   'html5',
